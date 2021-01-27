@@ -52,8 +52,7 @@ function playSound(soundname) {
 };
 
 function nextSequence(level) {
-    var stopcounter = level ;
-    
+    var stopcounter = level ;   
     console.log("stop counter " + stopcounter);
     $("h1").text("Level " + level);
     var delayInMilliseconds = 3000; //1 second
@@ -62,10 +61,7 @@ function nextSequence(level) {
 
         var randomNumber = Math.floor(Math.random() * 4);
         var randomChosenColour = buttonColours[randomNumber];
-
         playSound(randomChosenColour);
-      
-
         gamePattern.push(randomChosenColour);
         console.log(gamePattern);
         $("#" + randomChosenColour).fadeOut(150).fadeIn(150);
@@ -84,7 +80,6 @@ function animatePress(currentColour) {
 }
 
 function startOver(){
-
     gamePattern =[];
     level = 0;
 }
@@ -115,8 +110,6 @@ $('[type="button"]').click(function (e) {
     playSound(userChosenColour);
     animatePress(userChosenColour);
     console.log("index  : " + (userClickedPattern.length -1 ) );
-    
-    
     checkAnswer(userClickedPattern.length);
     
 });
